@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 - Git/07 - Stashing (DO NOT use for Remote Development Environments).md",
+                "file": "02-Github Basics/06 - Git vs Github.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07 - Stashing (DO NOT use for Remote Development Environments)"
+              "title": "06 - Git vs Github"
             }
           }
         ]
@@ -170,32 +170,33 @@
   },
   "active": "ada0e1f0777a6541",
   "lastOpenFiles": [
-    "02 - Github Basics/09 - Forking a Repository.md",
-    "02 - Github Basics/08 - Git.md",
-    "02 - Github Basics/07 - Github Repo.md",
-    "02 - Github Basics/06 - Git vs Github.md",
-    "02 - Github Basics/05 - Github Octocat.md",
-    "02 - Github Basics/04 - Github.md",
-    "02 - Github Basics/03 - Version Control Services.md",
-    "02 - Github Basics/02 - Git.md",
-    "02 - Github Basics/01 - Version Control Systems.md",
-    "99 - Git/04 - Remotes.md",
-    "99 - Git/03 - Git Commit.md",
-    "99 - Git/01 - Basics.md",
-    "99 - Git/05 - Branches.md",
-    "00 - Resources/Pasted image 20250624161554.png",
-    "99 - Git/07 - Stashing (DO NOT use for Remote Development Environments).md",
-    "99 - Git/06 - Merging.md",
-    "00 - Resources/Pasted image 20250624152950.png",
-    "01 - Intro/01 - Github Foundations.md",
+    "Untitled.md",
+    "02-Github Basics/06 - Git vs Github.md",
+    "03-Git/01 - Basics.md",
+    "03-Git/04 - Remotes.md",
+    "03-Git/03 - Git Commit.md",
+    "02-Github Basics/09 - Forking a Repository.md",
+    "02-Github Basics/08 - Git.md",
+    "02-Github Basics/07 - Github Repo.md",
+    "02-Github Basics/01 - Version Control Systems.md",
+    "02-Github Basics/02 - Git.md",
+    "02-Github Basics/03 - Version Control Services.md",
+    "02-Github Basics/04 - Github.md",
+    "02-Github Basics/05 - Github Octocat.md",
+    "00-Resources/Pasted image 20250620233543.png",
+    "03-Git/05 - Branches.md",
+    "03-Git/06 - Merging.md",
+    "03-Git/07 - Stashing (DO NOT use for Remote Development Environments).md",
+    "00-Resources/Pasted image 20250624161554.png",
+    "00-Resources/Pasted image 20250624152950.png",
+    "01-Intro/01 - Github Foundations.md",
     "99 - Git/02 - Cloning via SSH.md",
-    "99 - Git",
-    "00 - Resources/Pasted image 20250620235456.png",
-    "00 - Resources",
-    "00 - Resources/Pasted image 20250620233917.png",
-    "00 - Resources/Pasted image 20250620233543.png",
-    "02 - Github Basics",
+    "03-Git",
+    "00-Resources/Pasted image 20250620235456.png",
+    "00-Resources",
+    "00-Resources/Pasted image 20250620233917.png",
+    "02-Github Basics",
     "Welcome.md",
-    "01 - Intro"
+    "01-Intro"
   ]
 }
