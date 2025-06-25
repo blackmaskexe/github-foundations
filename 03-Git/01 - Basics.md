@@ -61,30 +61,6 @@ git clone <url>
 - you will be prompted to log into your github account for this
 
 #### 2\. ssh
-i. Generate an SSH RSA Key-Pair (this is a linux command):
-```bash
-ssh-keygen -t rsa
-# when it asks you where to save the key, you will need to enter full filepath
-# eg: /home/user/...
-
-# it might ask you for a passphrase (that is the password to access the ssh keys, and it is optional)
-```
-
-ii. Read the contents of the ssh key file:
-```bash
-cat <path where your ssh key is stored>
-```
-iii. copy the contents of the ssh key file
-
-iv. go to:
-```
-github -> settings -> ssh and GPG keys -> add new SSH Key
-```
-
-iv. you are now free to clone using the ssh link that you copied from the repo you wanted to clone
-```bash
-git clone git@github.com/... # only able to do this if it's a public repo. If it's private, you would need to have your credentials
-```
 
 #### 3\. GitHub CLI
 - visit https://www.github.com/cli/cli to view download instructions (to download gh cli)

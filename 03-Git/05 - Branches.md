@@ -4,35 +4,35 @@
 ![[Pasted image 20250624161554.png]]
 - in the above example, the person working on feature branch 1 merges their changes with the main branch, and then merge their branch with the main branch. This allows multiple people to work on the same repository together (but on different features)
 
+- you can have specific environments: dev, test main
+- you can have branches to specific devs: prath, basch, ...
+- you can have branches for features: redbull-wing-irl-implementation, etc
 
+## Most Important Git Branch Commands:
 
-
-
-
-
-
-
-
-
-
-
-
-- get a list of all branches
 ```bash
-git branch
+git branch # list all local branches
+
+git branch branch-name # create a new branch under the name branch-name
+
+git checkout branch-name # switch to the branch-name branch
+
+git checkout -b branch-name # creating + switching to a branch branch-name
+
+git branch -d branch-name # delete a branch
+
+git branch -m old-branch-name new-branch-name # rename a branch locally
+
+git branch -a # list all branches locally + REMOTE
 ```
-- create a new branch:
-```
-git branch branch-name
-```
-- checkout a branch:
-```bash
-git checkout branch-name
-```
-- create new branch + checkout in same command:
-```bash
-git checkout -b branch-name
-```
+
+
+
+
+
+
+
+
 
 ## Remote Branch Syncing:
 - when you create a branch locally and try to push, there is no such branch on remote yet
