@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-Github Basics/06 - Git vs Github.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06 - Git vs Github"
+              "title": "README"
             }
           }
         ]
@@ -168,10 +168,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ada0e1f0777a6541",
+  "active": "9221eaad4f3a23cf",
   "lastOpenFiles": [
-    "Untitled.md",
     "02-Github Basics/06 - Git vs Github.md",
+    "README.md",
+    "Untitled.md",
     "03-Git/01 - Basics.md",
     "03-Git/04 - Remotes.md",
     "03-Git/03 - Git Commit.md",
