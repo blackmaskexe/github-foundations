@@ -1,5 +1,5 @@
 
-
+NOTE: For an even in-depth look at GitHub Flavored Markdown, you can view this [Formatting Syntax Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 - aka GFM
 - dialect of Markdown that is supported for user content on GitHub and GitHub Enterprise
 
@@ -16,7 +16,7 @@
 
 ## Examples of GFM Syntaxes:
 
-1. Embedded syntax within tables:
+#### 1. Embedded syntax within tables:
 ```md
 | Command | Description |
 |---|---|
@@ -29,7 +29,7 @@
 | `git status` | List all *new or modified* files |
 | `git diff` | Show file differences that **haven't been** staged |
 
-2. Advanced Cell Alignment:
+#### 2. Advanced Cell Alignment:
 
 ```md
 | Left-aligned | Center-aligned | Right-aligned |
@@ -42,7 +42,9 @@
 | :--- | :---: | ---: |
 | git status | git status | git status |
 | git diff | git diff | git diff |
-3. Details tag (collapsible sections):
+#### 3. Details tag (collapsible sections):
+- do /details in text formatting toolbar for shortcut
+- 
 ```md
 <details>
 
@@ -75,6 +77,31 @@ You can add an image or a code block, too.
 puts "Hello World"
 ```
 </details>
+
+#### 4. Internal Linking:
+
+a. on the same page:
+- you would need to have identifiers to navigate to certain parts of a markdown page
+- for instance, you can have the name of the heading tags be anchor points:
+```md
+## some heading name
+---
+[Jump to some heading name](#some-heading-name)
+```
+## some heading name
+---
+[Jump to some heading name](#some-heading-name)
+
+
+b. in the same repo:
+```md
+[Visit Readme](../README.md)
+```
+[Visit Readme](../README.md)
+
+
+
+
 
 
 ## Support for Mermaid:
@@ -251,21 +278,29 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 ## Quick MD Link for Issues:
 - when written within a repo with a specified issue number, these links will take you to that issue
 ```md
-#26
-GH-26
+#1
+GH-1
 
 (both lead to issue number 26)
 ```
 
-#26
-GH-26
+#1
+GH-1
 
-## Quick MD Link for Repos:
+## Task List into Open Issues:
+- can easily associate tasks to specific issues
+- can create subtasks for an issue
+- github can keep track of open or closed state of a linked issue
+
 ```md
-blackmaskexe/habitmentor-ai
+- [x] #21
+- [ ] https://github.com/user-name/repo-name/issues/21
 ```
 
-blackmaskexe/habitmentor-ai (please star this repository, I have spent countless hours making this mobile app please and thanks)
+- [ ] #1
+- [ ] https://github.com/blackmaskexe/github-foundations/issues/1
+
+- you can also re-order tasks
 ## Some more things to note:
 
 - github turns raw links automatically into a link like www.prathamsnehi.com

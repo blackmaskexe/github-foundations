@@ -15,7 +15,9 @@ Font Sizes:
 
 Font Customizations:
 *italicized*
+_italicized_
 **bold**
+__bold__
 
 > blockquote
 
