@@ -84,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "PAT",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -202,11 +202,13 @@
   },
   "active": "8b8dff210178021c",
   "lastOpenFiles": [
-    "07-Markdown/04 - Text Formatting Toolbar.md",
+    "Pasted image 20250626140254.png",
+    "README.md",
     "07-Markdown/05 - GitHub Flavored Markdown.md",
+    "04-GitHub Development/04 - Personal Account Access Tokens.md",
+    "07-Markdown/04 - Text Formatting Toolbar.md",
     "Pasted image 20250626134303.png",
     "00-Resources/Pasted image 20250626134323.png",
-    "04-GitHub Development/04 - Personal Account Access Tokens.md",
     "00-Resources/Pasted image 20250626000631.png",
     "07-Markdown/03 - Markdown Extended Syntax.md",
     "07-Markdown/02 - Markdown Basic Syntax.md",
@@ -234,7 +236,6 @@
     "00-Resources/Pasted image 20250625153149.png",
     "03-Git/05 - Branches.md",
     "02-Github Basics/02 - Git.md",
-    "03-Git/06 - Merging.md",
     "01-Intro",
     "00-Resources/Pasted image 20250624161554.png",
     "00-Resources/Pasted image 20250624152950.png",
@@ -242,7 +243,6 @@
     "00-Resources/Pasted image 20250620233917.png",
     "00-Resources/Pasted image 20250620233543.png",
     "00-Resources",
-    "03-Git/07 - Stashing (DO NOT use for Remote Development Environments).md",
     "03-Git",
     "02-Github Basics"
   ]

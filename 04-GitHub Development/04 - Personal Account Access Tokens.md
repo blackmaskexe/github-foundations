@@ -15,7 +15,7 @@ NOTE: When using the CLI, you will be prompted for your username and password. Y
 
 2. Fine-grained personal access tokens:
 	   - grant specific permissions
-	   - must have an expiry date
+	   - must have an expiry date (in the newer update, you can set tokens to never expire, but that gives you a warning)
 	   - can only access specific repos
 	   - can only use this to access resources owned by a single user or organization
 
