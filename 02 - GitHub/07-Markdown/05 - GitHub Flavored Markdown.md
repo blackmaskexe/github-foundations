@@ -97,7 +97,7 @@ b. in the same repo:
 ```md
 [Visit Readme](../README.md)
 ```
-[Visit Readme](../README.md)
+[Visit Readme](README.md)
 
 
 
