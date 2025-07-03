@@ -1,9 +1,10 @@
 
 - a git remote represents the reference to a remote location where a copy of the repository is hosted
 - you can have multiple remote entries for your git repo
-	- "origin" is the most common remote name for a remote repo, represents the repo from which everyone is working
-	- this is most likely the name of your remote repository if you cloned it or something like that
-- remote references are stored inside the .git/config file
+	- this means that you can have your local git repo be connected to multiple remote git providers like GitHub, AWS CodeCommit, GitLab, etc
+- "origin" is the most common remote name for a remote repo, represents the repo from which everyone is working
+- this is most likely the name of your remote repository if you cloned it or something like that
+- remote references are stored inside the `.git/config` file
 
 ## Most Important Git Remote Commands:
 
@@ -38,8 +39,31 @@ git fetch remote-name # fetch updates without pulling changes
 
 ![[Pasted image 20250625153149.png]]
 
+## Cloning:
+- The following instructions are about cloning from GitHub. The process of cloning from different providers is similar too.
+- Cloning means getting a copy of the remote repository's code files onto your local system
+- note that if you just download a github repository, it does not contain the .git folder (the .git folder tells that our project is a git repo, therefore no commit histories (which are checkpoints), author information, or any of that)
 
+Ways to Clone:
+#### 1\. https
+```md
+git clone <url>
+```
+- you will be prompted to log into your github account for this
 
+#### 2\. SSH (See instructions on GitHub's website)
+
+#### 3\. GitHub CLI
+- visit https://www.github.com/cli/cli to view download instructions (to download gh cli)
+
+- authenticate to gh cli
+```bash
+gh auth login
+```
+- perform your cloning operations:
+```bash
+gh repo clone user-name/repo-name
+```
 
 
 

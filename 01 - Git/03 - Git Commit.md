@@ -1,12 +1,12 @@
 
-- a git commit represents incremental changes to a codebase
-- can be seen as a git tree (graph)
-
+- a git commit represents incremental changes to a codebase (a checkpoint)
+- can be seen in a git tree (graph)
+![[../00 - Resources/Pasted image 20250620233543.png | 400]]
 ## What is inside a commit:
 - tracking of additions, modifications and deletions of files
 - does not contain the files itself (therefore, lightweight), but only the additions and deletions
-- each commit has a sha hash id (commit hash), used to identify particular commits
-- has the author email and name
+- each commit has a SHA hash id (commit hash), used to identify particular commits
+- has the author email and name (that you set in the gitconfig)
 - could contain commit messages (It is important to write descriptive commit messages)
 - timestamp
 - parent commit hashes
@@ -15,15 +15,14 @@
 ## Commit Commands:
 i. add the files if you haven't
 ```bash
-git add file
-
+git add path/to/file
 ```
 
 ii. use the commit commands:
 ```bash
-git commit -m 'commit message' # make a commit with a message
+git commit -m 'commit message' # ⭐️ make a commit with a message
 
-git commit -m -a 'commit message' #automatically stage all tracked, modified files before commmit. Essentially git add --all + git commit -m
+git commit -a -m 'commit message' #automatically stage all tracked, modified files before commmit. Essentially git add --all + git commit -m. NOTE: DOES NOT GIT ADD FOR NEWLY CREATED FILES, ONLY THE OLD ONES
 
 git commit --amend # modify the most recent commit
 
