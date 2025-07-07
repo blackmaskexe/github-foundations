@@ -66,8 +66,6 @@ git commit -m 'Squash Commit #3'
 - If you get stuck or see a conflict, Git will tell you what to do next (usually fix the file, then run `git rebase --continue`).
 
 
-
-
 ## Squashing vs regular commits
 - Regular commits: every change is a separate commit (can be messy)
 - Squashed: all changes are combined into one commit (clean history)
