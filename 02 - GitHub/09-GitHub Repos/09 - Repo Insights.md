@@ -6,7 +6,7 @@
 2. Contributors (list of contributors and their activity stats)
 3. Community Standards: checks for essential community health files
 4. Community: Discussions, etc
-5. Traffic: 
+5. Traffic: summary of visitors on the repo
 6. Commits: history of all commits in the repo
 7. Code Frequency: graph of code additions and deletions over time
 8. Dependency Graph: visualizes code dependencies

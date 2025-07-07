@@ -17,8 +17,6 @@
 - organizations (list of github orgs you are a part of)
 - contribution activity (detailed list of recent activities on GitHub)
 
-TODO in my own profile: use gists to explain what each pinned repo does (essentially making it top 3 repos on display, but explain each one in detail-ish)
-
 ## Profile Readme:
 - create a repo with the same name as your username, and have a readme inside of it
 - this readme will be displayed on your github profile

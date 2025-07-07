@@ -1,6 +1,6 @@
 
 - allows you to open a pr, but mark it as a work in progress
-- a feature only available ot GgtHub Organization Teams
+- a feature only available ot GitHub Organization Teams
   ![[Pasted image 20250628122932.png]]
 
 ## Use case for Draft PRs:

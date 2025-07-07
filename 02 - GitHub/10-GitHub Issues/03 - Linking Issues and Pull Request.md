@@ -6,7 +6,6 @@
 ## How to Link Issues to PRs:
 1. in the description of the pull request, specify the issue number with a particular set of keywords
 ```md
-
 Link issues with prs in pr description by specifying a keyword + issue #
 
 - close

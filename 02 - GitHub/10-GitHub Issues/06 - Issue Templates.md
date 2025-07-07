@@ -29,6 +29,6 @@ assignees: ''
 ```
 
 ## GUI Issue Template Maker:
-- navigate to `repo -> insights -> community standards -> crete issue template`
+- navigate to `repo -> insights -> community standards -> create issue template`
 - the above will walk you through creating an issue template for your repo
 -  the template that you add here will be visible as options for user to select when creating a new issue

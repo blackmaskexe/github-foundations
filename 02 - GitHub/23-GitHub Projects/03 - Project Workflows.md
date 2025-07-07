@@ -1,5 +1,5 @@
 
-- GitHub has buil in Project Workflows that allow you to automate what happens based on specific events
+- GitHub has built in Project Workflows that allow you to automate what happens based on specific events
 - access it from the workflows in the ellipsis menu:
   ![[Pasted image 20250629143331.png]]
 

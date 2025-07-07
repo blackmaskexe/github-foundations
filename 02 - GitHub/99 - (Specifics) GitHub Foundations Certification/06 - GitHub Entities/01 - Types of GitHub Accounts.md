@@ -4,7 +4,7 @@
 - individual accounts with own username and a public profile page
 - can own resources like repos, projects
 - actions taken are attributed to the personal account
-- can either be GitHub Free or GitHub 
+- can either be GitHub Free or GitHub Pro
 - repo url contains the personal account username
 ## Organization Accounts:
 - shared account, where multiple people collaborate

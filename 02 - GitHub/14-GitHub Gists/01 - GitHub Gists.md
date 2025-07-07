@@ -15,4 +15,4 @@
 - get clone url by clicking on Embed -> get clone url
   ![[Pasted image 20250628193702.png]]
 
--fork it by clicking on the fork button direclty
+- fork it by clicking on the fork button direclty

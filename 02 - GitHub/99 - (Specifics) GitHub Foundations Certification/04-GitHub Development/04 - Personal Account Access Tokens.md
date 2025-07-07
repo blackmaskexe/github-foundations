@@ -2,11 +2,10 @@
 NOTE: When using the CLI, you will be prompted for your username and password. Your github password won't work here, and you MUST use a personal account access token in place of the password. The method to do so is listed as follows:
 
 - these are an alternative way of using passwords for authenticating with GitHub and GitHub API in CLI
-- Access Secret equivalent in AWS
+- Access Secret equivalent of AWS
 
 ## How to obtain a PAT:
 - find it in: `GitHub -> Settings -> Developer Settings`
-- 
 
 ## Types of PATs in GitHub:
 

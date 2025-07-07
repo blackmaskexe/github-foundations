@@ -1,6 +1,5 @@
 
 
-
 | Feature                                        | Copilot Individuals                      | Copilot Business                    |
 | ---------------------------------------------- | ---------------------------------------- | ----------------------------------- |
 | **Pricing** ⭐️                                 | $10 USD per month  <br>$100 USD per year | $19 USD per user per month          |

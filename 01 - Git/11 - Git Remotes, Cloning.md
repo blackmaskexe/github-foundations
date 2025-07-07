@@ -66,15 +66,18 @@ gh repo clone user-name/repo-name
 ```
 
 
+## Git vs GitHub:
 
+| Feature           | Git                                       | GitHub                                           |
+| ----------------- | ----------------------------------------- | ------------------------------------------------ |
+| **Nature**        | Distributed Version Control System (DVCS) | Version Control as a Service (VCaaS)             |
+| **Functionality** | Manages source code history               | Provides cloud storage for Git repositories      |
+| **Access**        | Local system installation                 | Accessed via web interface                       |
+| **Scope**         | Local repository management               | Online collaboration and repository hosting      |
+| **Collaboration** | Local changes, requires manual sharing    | Integrated tools for collaboration (Issues, PRs) |
+| **Usage**         | Command-line interface                    | Graphical interface and additional features      |
 
-
-
-
-
-
-
-## Scenarios to link Local and Remote:
+## Connecting to a Remote Repository:
 #### 1. you want to commit changes to a blank repository:
 ```bash
 git remote add origin <.git https url of your repo>

@@ -17,4 +17,5 @@ git push --delete origin tag-name # delete a remote tag
 - it should be followed while naming tags
 
 ## Versioning old commits:
-- you have to checkout that particular commit by using the commit sha 
+- you have to checkout that particular commit by using the commit sha
+- then assign the particular tag to that commit

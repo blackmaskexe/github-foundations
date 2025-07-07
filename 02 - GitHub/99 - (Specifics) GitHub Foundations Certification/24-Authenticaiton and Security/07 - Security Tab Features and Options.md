@@ -4,7 +4,7 @@
 - you see the vulnerabilities, policies etc in here if you are not the owner
 
 ## Security Policy:
-- create a md file taht explains how security vulnerabilities should be reported
+- create a md file that explains how security vulnerabilities should be reported
 
 ## Security Advisories:
 - privately discuss, fix, and publish information about security vulnerabilities in your public repository

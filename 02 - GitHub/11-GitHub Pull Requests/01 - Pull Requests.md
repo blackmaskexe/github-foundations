@@ -1,5 +1,5 @@
 
-- a Pull Request (PR) is a formal process to merge changes, that can be manually or autoamtically reviewd before it is accepted into your main branch
+- a Pull Request (PR) is a formal process to merge changes, that can be manually or automatically reviewed before it is accepted into your main branch
 
 ## Benefits of a PR:
 - collaborative review

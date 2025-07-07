@@ -13,7 +13,7 @@
 - options include Deploy node.js to azure web app, etc
 
 ## GitHub Actions file storage:
-- all. GitHub actions files are defined as YAML files located in the `.github/workflow` folder in your repo
+- all GitHub actions files are defined as YAML files located in the `.github/workflow` folder in your repo
 - sample workflow:
   ![[Pasted image 20250628203130.png]]
 

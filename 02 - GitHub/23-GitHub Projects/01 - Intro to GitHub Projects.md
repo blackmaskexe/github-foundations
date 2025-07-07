@@ -2,7 +2,7 @@
 - it is a planning and tracking tools when working on GitHub Repos
 - has adaptable views, can be changed between:
 	  - spreadsheet (table)
-	  - taskboard (board)
+	  - task board (board)
 	  - roadmap (roadmap) 
 - directly integrates w/ issues and prs
 - have automation tools
@@ -11,7 +11,7 @@
 
 ## Layouts:
 
-#### 1. Layout:
+#### 1. Table:
 ![[Pasted image 20250629143023.png]]
 
 #### 2. Board:
