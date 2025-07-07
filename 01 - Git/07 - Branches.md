@@ -48,70 +48,67 @@ git push -u origin branchname
 
 Think of branches as parallel timelines of your project:
 
-```mermaid
-graph TD
-    A[Initial commit] --> B[Add README]
-    B --> C[Setup project]
-    C --> D[Fix typo]
-    C --> E[Add login form]
-    E --> F[Add validation]
-    F --> G[Add styling]
-    D --> H[Release v1.0]
-    G --> H
+```
+$ git log --oneline --graph --all
 
-    style C fill:#ffeb3b
-    style H fill:#4caf50
+* c8f3d2a (HEAD -> main) C8 - Release v1.0
+|\
+| * a1b2c3d (feature-login) C7 - Add styling
+| * e4f5g6h C6 - Add validation
+| * i7j8k9l C5 - Add login form
+|/
+* m1n2o3p C4 - Fix typo
+* q4r5s6t C3 - Setup project
+* u7v8w9x C2 - Add README
+* y1z2a3b C1 - Initial commit
 ```
 
 **Key Visual Elements:**
 
-- **Commits**: Each box represents a commit (snapshot of your code)
-- **Branch Lines**: Different paths show different branches
-- **Merge**: Where branches come back together (H)
-- **Branch Point**: Where new branches split off (C)
+- **Commits**: Each line with `*` represents a commit
+- **Branch Lines**: `|` and `/` show different branches and merges
+- **Merge**: Where lines converge (like at C8)
+- **Branch Point**: Where lines diverge (like at C3)
 
 ### 2. Branch Creation and Switching
 
-```mermaid
-graph TD
-    A[Commit A] --> B[Commit B]
-    B --> C[Commit C - Branch Point]
-    C --> D[main: Fix typo]
-    C --> E[feature-A: Add feature]
-    E --> F[feature-A: Complete feature]
-    C --> G[feature-B: Start work]
-    G --> H[feature-B: Finish work]
+```
+$ git log --oneline --graph --all
 
-    style C fill:#ffeb3b
-    style D fill:#2196f3
-    style F fill:#ff9800
-    style H fill:#9c27b0
+* f9g8h7i (feature-B) C8 - feature-B: Finish work
+* j6k5l4m C7 - feature-B: Start work
+| * n3o2p1q (feature-A) C6 - feature-A: Complete feature
+| * r9s8t7u C5 - feature-A: Add feature
+|/
+* v6w5x4y (HEAD -> main) C4 - main: Fix typo
+* z3a2b1c C3 - Branch Point
+* d9e8f7g C2 - Add basic files
+* h6i5j4k C1 - Initial setup
 ```
 
 **What's happening here:**
 
-- Commits A, B, C happen on `main` branch
-- At commit C, we create two new branches
+- Commits C1, C2, C3 happen on `main` branch
+- At commit C3, we create two new branches
 - Each branch continues with its own commits
-- All branches share the common history up to point C
+- All branches share the common history up to point C3
 
 ### 3. Understanding HEAD Pointer
 
-```mermaid
-graph TD
-    A[main branch] --> B[Latest commit on main]
-    C[feature-login branch] --> D[Latest commit on feature]
-    E[HEAD pointer] --> F{Which branch are you on?}
-    F --> A
-    F --> C
+```
+$ git log --oneline --graph --decorate
 
-    style E fill:#ff5722
-    style F fill:#ffc107
+* 2a3b4c5 (HEAD -> feature-login, origin/feature-login) C7 - Latest commit on feature
+| * 6d7e8f9 (main, origin/main) C5 - Latest commit on main
+|/
+* 1g2h3i4 C3 - Common ancestor
+* 5j6k7l8 C2 - Previous work
+* 9m0n1o2 C1 - Initial commit
 ```
 
-**HEAD** is like a bookmark that shows:
+**HEAD** is shown in the output and indicates:
 
-- Which branch you're currently on
+- Which branch you're currently on (`HEAD -> feature-login`)
 - Which commit you're looking at
 - Where new commits will be added
 
@@ -119,139 +116,126 @@ graph TD
 
 #### Feature Branch Workflow
 
-```mermaid
-graph TD
-    A[Initial commit] --> B[main branch]
-    B --> C[develop branch]
-    C --> D[feature-auth branch]
-    C --> E[feature-dashboard branch]
-    D --> F[Add login]
-    D --> G[Add logout]
-    E --> H[Create dashboard]
-    E --> I[Add widgets]
-    G --> J[Merge to develop]
-    I --> J
-    J --> K[Merge to main]
-    K --> L[Release v1.0]
+```
+$ git log --oneline --graph --all
 
-    style A fill:#4caf50
-    style C fill:#2196f3
-    style D fill:#ff9800
-    style E fill:#9c27b0
-    style L fill:#4caf50
+*   e1f2g3h (HEAD -> main) C12 - Merge develop to main
+|\
+| *   d4i5j6k (develop) C11 - Merge auth to develop
+| |\
+| | * l7m8n9o (feature-auth) C7 - Add logout functionality
+| | * p1q2r3s C6 - Add login system
+| * | t4u5v6w C10 - Develop branch continues
+| |/
+| * x7y8z9a C5 - Create feature-dashboard branch
+| |\
+| | * b1c2d3e (feature-dashboard) C9 - Add dashboard widgets
+| | * f4g5h6i C8 - Create dashboard UI
+| |/
+| * j7k8l9m C4 - Create feature-auth branch
+|/
+* n1o2p3q C3 - Create develop branch
+* r4s5t6u C2 - Setup main branch
+* v7w8x9y C1 - Initial commit
 ```
 
 #### Hotfix Workflow
 
-```mermaid
-graph TD
-    A[v1.0 Release] --> B[Feature work continues]
-    A --> C[Critical bug found!]
-    C --> D[Create hotfix branch]
-    D --> E[Fix critical bug]
-    E --> F[Merge back to main]
-    F --> G[v1.0.1 Release]
-    B --> H[Continue feature work]
+```
+$ git log --oneline --graph --all
 
-    style A fill:#4caf50
-    style C fill:#f44336
-    style D fill:#ff9800
-    style G fill:#4caf50
+* a1b2c3d (HEAD -> main) C7 - v1.0.1 Release
+|\
+| * e4f5g6h (hotfix/security-patch) C5 - Test hotfix
+| * i7j8k9l C4 - Fix critical security bug
+|/
+| * m1n2o3p C2 - Continue feature work on main
+|/
+* q4r5s6t C1 - v1.0 Release
 ```
 
-### 5. Git Workflow States
+### 5. Parallel Development Scenario
 
-```mermaid
-graph LR
-    A[Working Directory<br/>📁 Your files] --> B[Staging Area<br/>📋 Ready to commit]
-    B --> C[Local Repository<br/>💾 Committed]
-    C --> D[Remote Repository<br/>☁️ Pushed to GitHub]
+```
+$ git log --oneline --graph --all
 
-    E[Modified files] --> A
-    F[git add] --> B
-    G[git commit] --> C
-    H[git push] --> D
-
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e8
+*   z9y8x7w (HEAD -> main) C11 - All features combined!
+|\
+| *   v6u5t4s C10 - Merge all branches
+| |\
+| | * r3q2p1o (alice-work) C6 - Alice: Add form validation
+| | * n9m8l7k C5 - Alice: Add login form
+| * | j6i5h4g (bob-work) C8 - Bob: Add user statistics
+| * | f3e2d1c C7 - Bob: Create dashboard layout
+| |/
+| * a9b8c7d C9 - Main: Fix security vulnerability
+|/
+* e6f5g4h C4 - Main continues with hotfix
+* i3j2k1l C3 - Create Bob's branch
+* m9n8o7p C2 - Create Alice's branch
+* q6r5s4t C1 - Shared starting point
 ```
 
-### 6. Parallel Development Scenario
+### 6. Understanding Commit Relationships
 
-```mermaid
-graph TD
-    A[Shared starting point] --> B[Alice starts feature A]
-    A --> C[Bob starts feature B]
-    A --> D[Main gets hotfix]
-
-    B --> E[Alice: Add login form]
-    E --> F[Alice: Add validation]
-
-    C --> G[Bob: Create dashboard]
-    G --> H[Bob: Add user stats]
-
-    D --> I[Main: Fix security bug]
-
-    F --> J[Merge Alice's work]
-    H --> J
-    I --> J
-    J --> K[All work combined!]
-
-    style A fill:#ffeb3b
-    style B fill:#2196f3
-    style C fill:#9c27b0
-    style D fill:#f44336
-    style K fill:#4caf50
 ```
+$ git log --oneline --graph --all
 
-### 7. Understanding Commit Relationships
-
-```mermaid
-graph TD
-    A[abc123<br/>Parent commit] --> B[def456<br/>Child commit]
-    B --> C[ghi789<br/>Regular commit]
-    B --> D[mno345<br/>Branch commit]
-    C --> E[jkl012<br/>Main continues]
-    D --> F[pqr678<br/>Branch continues]
-
-    G[Merge commit<br/>xyz999] --> C
-    G --> F
-    G --> H[Combined result]
-
-    style A fill:#e3f2fd
-    style G fill:#ff9800
-    style H fill:#4caf50
+*   f1g2h3i (HEAD -> main) C9 - Combined codebase
+|\
+| * j4k5l6m (feature-branch) C7 - stu901: Complete feature
+| * n7o8p9q C6 - pqr678: Feature work
+* | r1s2t3u C5 - jkl012: Main continues
+|/
+* v4w5x6y C4 - mno345: Create feature branch
+* z7a8b9c C3 - ghi789: Continue on main
+* d1e2f3g C2 - def456: Add README
+* h4i5j6k C1 - abc123: Initial commit
 ```
 
 **Commit Relationships:**
 
-- **Parent**: The commit that came before (abc123 → def456)
-- **Child**: The commit that comes after
-- **Merge Commit**: A commit with multiple parents (xyz999)
-- **Commit Hash**: Unique identifier for each commit
+- **Parent**: The commit that came before (visible by following the lines upward)
+- **Child**: The commit that comes after (visible by following lines downward)
+- **Merge Commit**: A commit with multiple parents (like C9 with lines from both branches)
+- **Commit Hash**: The short hash shown (like f1g2h3i, abc123, etc.)
 
-### 8. Branch Protection and Development Flow
+### 7. Branch Naming Conventions
 
-```mermaid
-graph TD
-    A[👨‍💻 Developer] --> B[Create Feature Branch]
-    B --> C[Write Code]
-    C --> D[git add & git commit]
-    D --> E[git push to remote]
-    E --> F[Create Pull Request]
-    F --> G{Code Review}
-    G -->|✅ Approved| H[Merge to Main]
-    G -->|❌ Changes Needed| C
-    H --> I[🗑️ Delete Feature Branch]
-    H --> J[🚀 Deploy to Production]
+```
+$ git log --oneline --graph --all --branches
 
-    style A fill:#e1f5fe
-    style F fill:#fff3e0
-    style H fill:#e8f5e8
-    style I fill:#ffebee
-    style J fill:#e8f5e8
+* a1b2c3d (release/v2.0.0) C11 - Finalize v2.0.0
+* e4f5g6h C10 - Prepare release
+| * i7j8k9l (hotfix/security-patch) C9 - Test and deploy fix
+| * m1n2o3p C8 - Critical security fix
+|/
+| * q4r5s6t (bugfix/login-error) C7 - Fix login validation
+|/
+| * u7v8w9x (feature/payment-integration) C6 - Complete payment gateway
+| * y1z2a3b C5 - Start payment feature
+|/
+| * c4d5e6f (feature/user-authentication) C4 - Complete login system
+| * g7h8i9j C3 - Start auth feature
+|/
+* k1l2m3n (HEAD -> develop) C2 - Fork from main
+* o4p5q6r (main) C1 - Production ready
+```
+
+### 8. Branch Lifecycle
+
+```
+$ git log --oneline --graph --all
+
+* a1b2c3d (HEAD -> main) C6 - Merge commit to main
+|\
+| * e4f5g6h C7 - Address feedback
+| * i7j8k9l C5 - Add styling
+| * m1n2o3p C4 - Fix validation bug
+| * q4r5s6t C3 - Add validation logic
+| * u7v8w9x C2 - First feature commit
+|/
+* y1z2a3b C1 - Create Branch from main
 ```
 
 ## Branch Command Visualization
@@ -260,113 +244,110 @@ graph TD
 
 ```bash
 # Current state: on main branch
-git branch feature-xyz     # Creates new branch (still on main)
-git checkout feature-xyz   # Switches to new branch
+$ git branch feature-xyz     # Creates new branch (still on main)
+$ git checkout feature-xyz   # Switches to new branch
 # OR combine both:
-git checkout -b feature-xyz
+$ git checkout -b feature-xyz
 ```
 
-```mermaid
-graph TD
-    A[main branch] --> B[Commit A]
-    B --> C[Commit B]
-    C --> D[📍 You are here]
+**Before creating branch:**
 
-    E[After: git checkout -b feature-xyz] --> F[New branch created]
-    C --> G[feature-xyz branch]
-    G --> H[📍 You are now here]
+```
+$ git log --oneline --graph
 
-    style D fill:#2196f3
-    style H fill:#ff9800
+* c2d3e4f (HEAD -> main) C2 - Add basic features
+* g5h6i7j C1 - Initial setup
+```
+
+**After creating and switching to branch:**
+
+```
+$ git log --oneline --graph --all
+
+* c2d3e4f (HEAD -> feature-xyz, main) C2 - Add basic features
+* g5h6i7j C1 - Initial setup
+```
+
+**After making commits on feature branch:**
+
+```
+$ git log --oneline --graph --all
+
+* k8l9m1n (HEAD -> feature-xyz) C3 - Ready for new commits
+* c2d3e4f (main) C2 - Add basic features
+* g5h6i7j C1 - Initial setup
 ```
 
 ### Remote Branch Tracking
 
-```mermaid
-graph LR
-    A[💻 Local Branch] --> B[git push -u origin branch-name]
-    B --> C[☁️ Remote Branch]
-    C --> D[🔗 Tracking Relationship]
-
-    E[👥 Other Developer] --> F[git pull]
-    F --> C
-    F --> G[Gets your changes]
-
-    style D fill:#4caf50
-    style G fill:#e8f5e8
+```bash
+$ git push -u origin feature-xyz
+$ git log --oneline --graph --all
 ```
 
-## Advanced Branch Concepts
-
-### 9. Branch Naming Conventions
-
-```mermaid
-graph TD
-    A[main] --> B[develop]
-    B --> C[feature/user-authentication]
-    B --> D[feature/payment-integration]
-    B --> E[bugfix/login-error]
-    A --> F[hotfix/security-patch]
-    B --> G[release/v2.0.0]
-
-    style A fill:#4caf50
-    style B fill:#2196f3
-    style C fill:#ff9800
-    style D fill:#ff9800
-    style E fill:#f44336
-    style F fill:#e91e63
-    style G fill:#9c27b0
+```
+* a1b2c3d (HEAD -> feature-xyz, origin/feature-xyz) C3 - Latest local work
+* e4f5g6h C2 - Synced with remote
+* i7j8k9l (main, origin/main) C1 - Initial setup
 ```
 
-**Common Naming Patterns:**
+**When other developer pulls:**
 
-- `feature/` - New features
-- `bugfix/` - Bug fixes
-- `hotfix/` - Critical fixes
-- `release/` - Release preparation
-- `chore/` - Maintenance tasks
+```
+$ git log --oneline --graph --all
 
-### 10. Branch Lifecycle
-
-```mermaid
-graph TD
-    A[🌱 Create Branch] --> B[💻 Develop]
-    B --> C[🔄 Regular Commits]
-    C --> D[📤 Push to Remote]
-    D --> E[📋 Create Pull Request]
-    E --> F[👀 Code Review]
-    F --> G{Review Result}
-    G -->|✅| H[🔀 Merge]
-    G -->|❌| I[🔧 Address Feedback]
-    I --> C
-    H --> J[🧹 Cleanup]
-    J --> K[🗑️ Delete Branch]
-
-    style A fill:#4caf50
-    style H fill:#2196f3
-    style K fill:#f44336
+* m1n2o3p (HEAD -> feature-xyz, origin/feature-xyz) C4 - Other dev's work
+* a1b2c3d C3 - Your previous work
+* e4f5g6h C2 - Synced with remote
+* i7j8k9l (main, origin/main) C1 - Initial setup
 ```
 
-## Pro Tips for Branch Visualization
+## Pro Tips for Git Graph Visualization
 
-1. **Use Git Graph Extension**: Visual representation in VS Code
-2. **Command Line Tools**: `git log --oneline --graph --all`
-3. **Think in Timelines**: Each branch is a separate timeline of changes
-4. **Understand Pointers**: Branches are just pointers to commits
-5. **HEAD Movement**: Track where you are in the commit history
-
-### Visualization Commands
+### Essential Commands for Branch Visualization
 
 ```bash
-# See branch structure in terminal
+# Basic graph view
+git log --oneline --graph
+
+# Show all branches
+git log --oneline --graph --all
+
+# Include branch and tag names
 git log --oneline --graph --all --decorate
 
-# See all branches
-git branch -a
+# Limit to recent commits
+git log --oneline --graph --all -10
 
-# See branch relationships
+# Show only branch structure
 git show-branch
 
-# Visual diff between branches
-git diff main..feature-branch
+# Compare branches
+git log --oneline --graph main..feature-branch
+
+# Beautiful colored output
+git log --oneline --graph --all --decorate --color
 ```
+
+### Setting Up Git Aliases for Better Visualization
+
+```bash
+# Add these to your git config for quick access
+git config --global alias.lg "log --oneline --graph --all --decorate"
+git config --global alias.tree "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Usage:
+git lg        # Quick graph view
+git tree      # Detailed tree view with author and date
+```
+
+### Reading Git Graph Output
+
+**Symbols Meaning:**
+
+- `*` = Commit
+- `|` = Branch line continues
+- `/` = Branch merges or splits
+- `\` = Branch merges or splits (other direction)
+- `HEAD ->` = Current branch pointer
+- `origin/` = Remote branch reference
