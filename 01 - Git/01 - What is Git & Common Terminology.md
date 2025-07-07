@@ -1,6 +1,5 @@
-
 ## Git is a Distributed Version Control System:
-- Git is an example of a distributed version control system (DVCS), created by Linus Torvald (who is also creator of the linux kernel)
+- Git is an example of a distributed version control system (DVCS), created by Linus Torvalds (who is also creator of the Linux kernel)
 - Git is called a version control system because it allows a user to keep track of different versions, create new versions, revert to old versions, and much more for a given codebase (a codebase is simply a combination of all the files that you use in your project)
 - Git is called "Distributed" because many developers can work on a Git project (repository) at once locally, and each developer can access the history of the changes made in their projects
 
@@ -8,6 +7,14 @@
 - "Let's work together on this project": Git makes it effortless for multiple people to work and collaborate on the same codebase. People can make their own changes and work on different features, and combine (merge) them at the end of the day
 - "Undo Button": revert to old versions of the projects when you mess things. You can define many checkpoints (known as commits) along the way, and you can return back to these checkpoints on demand. Therefore, Git is also very helpful for non-collaborative projects as well.
 - "Who did this change": when working on a project in collaboration, you often times need to be able to point to the person who made the changes on the code. This is where you can easily see the history of changes (commits) to see what person contributed what part of the code
+
+## Git Concepts covered in this documentation:
+- feel free to jump to any one of these if you already do have some idea about Git:
+-   **Core Concepts**: [`init`](<02 - Initializing Git.md>), [`add`](<03 - Staging Area, Git Add.md>), [`commit`](<04 - Git Commit.md>), [`status`, `diff`, `log`](<06 - Git Status, Diff, Log.md>)
+-   **Branching and Merging**: [`branch`](<07 - Branches.md>), [`merge`](<08 - Merging.md>), [`rebase`](<10 - Rebasing.md>), [merge conflicts](<09 - Merge Conflicts.md>)
+-   **Working with Remotes**: [`remote`, `clone`](<6.5 - Git Remotes, Cloning.md>), [`fork`, `pull request`](<13 - Forking and Pull Requests.md>)
+-   **Advanced Topics**: [`squash`](<11 - Git Squashing.md>), [`tags`](<15 - Git Tags.md>), [`stash`](<16 - Stashing (DO NOT use for Remote Development Environments).md>), [`reset`, `revert`](<17 - Git Reset, Revert.md>), [`aliases`](<18 - Git Aliases.md>), [`hooks`](<19 - Git Hooks.md>)
+-   **Workflows and Best Practices**: [GitHub Flow](<14 - GitHub Flow.md>), [best practices](<20 - Git Best Practices.md>)
 
 ## Common Git Terms:
 - just glance over these, they will be covered in detail in the upcoming pages

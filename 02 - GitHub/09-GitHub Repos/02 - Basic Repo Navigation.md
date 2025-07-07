@@ -1,5 +1,4 @@
-
-![[Pasted image 20250626215606.png]]
+![Pasted image 20250626215606.png](../../00%20-%20Resources/Pasted%20image%2020250626215606.png)
 
 
 ## Parts of the Repo Navigation:

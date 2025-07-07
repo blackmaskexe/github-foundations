@@ -1,7 +1,7 @@
 
 ## Installation:
 - follow the instructions on the [Official Git Download Page](https://git-scm.com/downloads)
-- note: should come pre-installed in linux-bases systems
+- note: should come pre-installed in Linux-based systems
 
 ## Setup:
 - when you set up git on a machine, you are supposed to set up your name and email as follows:
@@ -11,7 +11,7 @@ git config --global user.email "myemail@gmail.com"
 ```
 - this edits the global gitconfig file (See [[Gitconfig file]] for more info)
 
-- 🤓 NOTE: For commits to count under your GitHub Account, you would need to enter the no-reply email that GitHub assigns to you
+- NOTE: For commits to count under your GitHub Account, you would need to enter the no-reply email that GitHub assigns to you
 	1. Make sure you are logged into github.com in your browser
 	2. Visit https://github.com/settings/emails
 	3. Look for the "Keep my email address private" section, and look for your no-reply email id (It should look something like 123456+your-github-username@users.noreply.github.com)
@@ -26,7 +26,7 @@ git init # makes the current folder a git repository
 - makes the current folder you are in (found using running `pwd` on the terminal) ready for Git Version Control
 - Make sure to run this command before running any other git commands and operations
 
-## Optional: Explore your Git Repository:
+## Optional: Explore your Git Repository Configuration:
 - cd into .git folder:
 ```bash
 cd .git

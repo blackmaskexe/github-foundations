@@ -1,4 +1,3 @@
-
 - for personal accounts, you can have a public GitHub user profile to showcase yourself as a developer
 
 ## Features:
@@ -24,8 +23,8 @@
 
 
 
-![[Pasted image 20250626150519.png]]
-![[Pasted image 20250626150541.png]]
+![Pasted image 20250626150519.png](../../00%20-%20Resources/Pasted%20image%2020250626150519.png)
+![Pasted image 20250626150541.png](../../00%20-%20Resources/Pasted%20image%2020250626150541.png)
 - damn look at that consistency in the past 2 months like crazy 💪💪
 
 ## What can you change on your public profile?
