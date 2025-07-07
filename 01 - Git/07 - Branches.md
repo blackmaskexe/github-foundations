@@ -42,27 +42,6 @@ git push -u origin branchname
 
 - -u is short for --set-upstream
 
-## Viewing your Git Tree:
-
-- good extension is Git Graph for VSC
-
-i. Download Git Graph for Visual Studio Code
-ii. navigate to Source Control on the left strip of the IDE
-iii. click on the second last icon, which will say "View Git Graph (git log)" upon hovering
-![[Pasted image 20250624152950.png]]
-
-iv. you will see a neatly formatted git commit tree
-
-## Checking out to a Commit instead of a Branch
-
-```bash
-git checkout <commit hash>
-```
-
-## Finding the Commit Hash:
-
-run `git log`, more details about this command in the next page
-
 ## Visual Understanding of Git Branches
 
 ### 1. Basic Branch Concept
@@ -70,66 +49,64 @@ run `git log`, more details about this command in the next page
 Think of branches as parallel timelines of your project:
 
 ```mermaid
-gitgraph
-    commit id: "Initial commit"
-    commit id: "Add README"
-    commit id: "Setup project"
-    branch feature-login
-    checkout feature-login
-    commit id: "Add login form"
-    commit id: "Add validation"
-    checkout main
-    commit id: "Fix typo"
-    checkout feature-login
-    commit id: "Add styling"
-    checkout main
-    merge feature-login
-    commit id: "Release v1.0"
+graph TD
+    A[Initial commit] --> B[Add README]
+    B --> C[Setup project]
+    C --> D[Fix typo]
+    C --> E[Add login form]
+    E --> F[Add validation]
+    F --> G[Add styling]
+    D --> H[Release v1.0]
+    G --> H
+
+    style C fill:#ffeb3b
+    style H fill:#4caf50
 ```
 
 **Key Visual Elements:**
 
-- **Commits**: Each circle represents a commit (snapshot of your code)
-- **Branch Line**: Each line represents a different branch
-- **Merge**: Where branches come back together
-- **HEAD**: Points to your current location (not shown in diagram, but important concept)
+- **Commits**: Each box represents a commit (snapshot of your code)
+- **Branch Lines**: Different paths show different branches
+- **Merge**: Where branches come back together (H)
+- **Branch Point**: Where new branches split off (C)
 
 ### 2. Branch Creation and Switching
 
 ```mermaid
-gitgraph
-    commit id: "A"
-    commit id: "B"
-    commit id: "C" type: HIGHLIGHT
-    branch feature-A
-    checkout feature-A
-    commit id: "D"
-    commit id: "E"
-    checkout main
-    branch feature-B
-    checkout feature-B
-    commit id: "F"
-    commit id: "G"
+graph TD
+    A[Commit A] --> B[Commit B]
+    B --> C[Commit C - Branch Point]
+    C --> D[main: Fix typo]
+    C --> E[feature-A: Add feature]
+    E --> F[feature-A: Complete feature]
+    C --> G[feature-B: Start work]
+    G --> H[feature-B: Finish work]
+
+    style C fill:#ffeb3b
+    style D fill:#2196f3
+    style F fill:#ff9800
+    style H fill:#9c27b0
 ```
 
 **What's happening here:**
 
-- We start with commits A, B, C on `main`
-- At commit C, we create `feature-A` branch
-- We make commits D, E on `feature-A`
-- We switch back to `main` and create `feature-B`
-- We make commits F, G on `feature-B`
+- Commits A, B, C happen on `main` branch
+- At commit C, we create two new branches
+- Each branch continues with its own commits
+- All branches share the common history up to point C
 
 ### 3. Understanding HEAD Pointer
 
 ```mermaid
-flowchart TD
-    A[main branch] --> B[commit: C]
-    C[feature-login branch] --> D[commit: E]
-    E[HEAD] --> F[Currently checked out branch]
+graph TD
+    A[main branch] --> B[Latest commit on main]
+    C[feature-login branch] --> D[Latest commit on feature]
+    E[HEAD pointer] --> F{Which branch are you on?}
+    F --> A
+    F --> C
 
-    style E fill:#ff9999
-    style F fill:#ffcccc
+    style E fill:#ff5722
+    style F fill:#ffc107
 ```
 
 **HEAD** is like a bookmark that shows:
@@ -143,142 +120,138 @@ flowchart TD
 #### Feature Branch Workflow
 
 ```mermaid
-gitgraph
-    commit id: "Initial"
-    branch develop
-    checkout develop
-    commit id: "Setup dev"
+graph TD
+    A[Initial commit] --> B[main branch]
+    B --> C[develop branch]
+    C --> D[feature-auth branch]
+    C --> E[feature-dashboard branch]
+    D --> F[Add login]
+    D --> G[Add logout]
+    E --> H[Create dashboard]
+    E --> I[Add widgets]
+    G --> J[Merge to develop]
+    I --> J
+    J --> K[Merge to main]
+    K --> L[Release v1.0]
 
-    branch feature-auth
-    checkout feature-auth
-    commit id: "Add login"
-    commit id: "Add logout"
-
-    checkout develop
-    branch feature-dashboard
-    checkout feature-dashboard
-    commit id: "Create dashboard"
-    commit id: "Add widgets"
-
-    checkout develop
-    merge feature-auth
-    merge feature-dashboard
-
-    checkout main
-    merge develop
-    commit id: "Release v1.0"
+    style A fill:#4caf50
+    style C fill:#2196f3
+    style D fill:#ff9800
+    style E fill:#9c27b0
+    style L fill:#4caf50
 ```
 
 #### Hotfix Workflow
 
 ```mermaid
-gitgraph
-    commit id: "v1.0"
-    commit id: "Feature work"
-    branch hotfix
-    checkout hotfix
-    commit id: "Critical fix"
-    checkout main
-    merge hotfix
-    commit id: "v1.0.1"
+graph TD
+    A[v1.0 Release] --> B[Feature work continues]
+    A --> C[Critical bug found!]
+    C --> D[Create hotfix branch]
+    D --> E[Fix critical bug]
+    E --> F[Merge back to main]
+    F --> G[v1.0.1 Release]
+    B --> H[Continue feature work]
+
+    style A fill:#4caf50
+    style C fill:#f44336
+    style D fill:#ff9800
+    style G fill:#4caf50
 ```
 
-### 5. Branch States and Terminology
+### 5. Git Workflow States
 
 ```mermaid
-flowchart LR
-    A[Working Directory] --> B[Staging Area]
-    B --> C[Local Repository]
-    C --> D[Remote Repository]
+graph LR
+    A[Working Directory<br/>📁 Your files] --> B[Staging Area<br/>📋 Ready to commit]
+    B --> C[Local Repository<br/>💾 Committed]
+    C --> D[Remote Repository<br/>☁️ Pushed to GitHub]
 
-    E[Untracked Files] --> A
-    F[Modified Files] --> A
-    G[Staged Files] --> B
-    H[Committed Files] --> C
-    I[Pushed Files] --> D
+    E[Modified files] --> A
+    F[git add] --> B
+    G[git commit] --> C
+    H[git push] --> D
 
-    style A fill:#e1f5fe
+    style A fill:#e3f2fd
     style B fill:#fff3e0
     style C fill:#f3e5f5
     style D fill:#e8f5e8
 ```
 
-### 6. Branch Divergence and Convergence
+### 6. Parallel Development Scenario
 
 ```mermaid
-gitgraph
-    commit id: "Start"
-    commit id: "Shared work"
-    branch alice-work
-    branch bob-work
+graph TD
+    A[Shared starting point] --> B[Alice starts feature A]
+    A --> C[Bob starts feature B]
+    A --> D[Main gets hotfix]
 
-    checkout alice-work
-    commit id: "Alice: Feature A"
-    commit id: "Alice: Fix bug"
+    B --> E[Alice: Add login form]
+    E --> F[Alice: Add validation]
 
-    checkout bob-work
-    commit id: "Bob: Feature B"
-    commit id: "Bob: Add tests"
+    C --> G[Bob: Create dashboard]
+    G --> H[Bob: Add user stats]
 
-    checkout main
-    commit id: "Main: Hotfix"
+    D --> I[Main: Fix security bug]
 
-    merge alice-work
-    merge bob-work
-    commit id: "Combined work"
+    F --> J[Merge Alice's work]
+    H --> J
+    I --> J
+    J --> K[All work combined!]
+
+    style A fill:#ffeb3b
+    style B fill:#2196f3
+    style C fill:#9c27b0
+    style D fill:#f44336
+    style K fill:#4caf50
 ```
-
-**Important Concepts Visualized:**
-
-- **Divergence**: When branches split apart (different development paths)
-- **Convergence**: When branches merge back together
-- **Parallel Development**: Multiple people working simultaneously
 
 ### 7. Understanding Commit Relationships
 
 ```mermaid
-flowchart TD
-    A[commit: abc123] --> B[commit: def456]
-    B --> C[commit: ghi789]
-    C --> D[commit: jkl012]
+graph TD
+    A[abc123<br/>Parent commit] --> B[def456<br/>Child commit]
+    B --> C[ghi789<br/>Regular commit]
+    B --> D[mno345<br/>Branch commit]
+    C --> E[jkl012<br/>Main continues]
+    D --> F[pqr678<br/>Branch continues]
 
-    B --> E[commit: mno345]
-    E --> F[commit: pqr678]
-
-    G[Parent Commit] --> A
-    H[Child Commit] --> D
-    I[Merge Commit] --> J[Has 2+ parents]
+    G[Merge commit<br/>xyz999] --> C
+    G --> F
+    G --> H[Combined result]
 
     style A fill:#e3f2fd
-    style D fill:#e8f5e8
-    style J fill:#fff3e0
+    style G fill:#ff9800
+    style H fill:#4caf50
 ```
 
 **Commit Relationships:**
 
-- **Parent**: The commit that came before
+- **Parent**: The commit that came before (abc123 → def456)
 - **Child**: The commit that comes after
-- **Merge Commit**: A commit with multiple parents (from merging branches)
-- **Commit Hash**: Unique identifier for each commit (like abc123)
+- **Merge Commit**: A commit with multiple parents (xyz999)
+- **Commit Hash**: Unique identifier for each commit
 
-### 8. Branch Protection and Flow
+### 8. Branch Protection and Development Flow
 
 ```mermaid
-flowchart TD
-    A[Developer] --> B[Create Feature Branch]
-    B --> C[Make Changes]
-    C --> D[Commit Changes]
-    D --> E[Push to Remote]
+graph TD
+    A[👨‍💻 Developer] --> B[Create Feature Branch]
+    B --> C[Write Code]
+    C --> D[git add & git commit]
+    D --> E[git push to remote]
     E --> F[Create Pull Request]
     F --> G{Code Review}
-    G -->|Approved| H[Merge to Main]
-    G -->|Changes Needed| C
-    H --> I[Delete Feature Branch]
+    G -->|✅ Approved| H[Merge to Main]
+    G -->|❌ Changes Needed| C
+    H --> I[🗑️ Delete Feature Branch]
+    H --> J[🚀 Deploy to Production]
 
     style A fill:#e1f5fe
     style F fill:#fff3e0
     style H fill:#e8f5e8
     style I fill:#ffebee
+    style J fill:#e8f5e8
 ```
 
 ## Branch Command Visualization
@@ -294,36 +267,84 @@ git checkout -b feature-xyz
 ```
 
 ```mermaid
-gitgraph
-    commit id: "A"
-    commit id: "B" type: HIGHLIGHT
-    branch feature-xyz
-    checkout feature-xyz
-    commit id: "C"
-    commit id: "D"
-```
+graph TD
+    A[main branch] --> B[Commit A]
+    B --> C[Commit B]
+    C --> D[📍 You are here]
 
-### Branch Listing and Management
+    E[After: git checkout -b feature-xyz] --> F[New branch created]
+    C --> G[feature-xyz branch]
+    G --> H[📍 You are now here]
 
-```bash
-git branch           # List local branches
-git branch -a        # List all branches (local + remote)
-git branch -d name   # Delete merged branch
-git branch -D name   # Force delete branch
+    style D fill:#2196f3
+    style H fill:#ff9800
 ```
 
 ### Remote Branch Tracking
 
 ```mermaid
-flowchart LR
-    A[Local Branch] --> B[git push -u origin branch-name]
-    B --> C[Remote Branch]
-    C --> D[Tracking Relationship]
+graph LR
+    A[💻 Local Branch] --> B[git push -u origin branch-name]
+    B --> C[☁️ Remote Branch]
+    C --> D[🔗 Tracking Relationship]
 
-    E[Other Developer] --> F[git pull]
+    E[👥 Other Developer] --> F[git pull]
     F --> C
+    F --> G[Gets your changes]
 
-    style D fill:#e8f5e8
+    style D fill:#4caf50
+    style G fill:#e8f5e8
+```
+
+## Advanced Branch Concepts
+
+### 9. Branch Naming Conventions
+
+```mermaid
+graph TD
+    A[main] --> B[develop]
+    B --> C[feature/user-authentication]
+    B --> D[feature/payment-integration]
+    B --> E[bugfix/login-error]
+    A --> F[hotfix/security-patch]
+    B --> G[release/v2.0.0]
+
+    style A fill:#4caf50
+    style B fill:#2196f3
+    style C fill:#ff9800
+    style D fill:#ff9800
+    style E fill:#f44336
+    style F fill:#e91e63
+    style G fill:#9c27b0
+```
+
+**Common Naming Patterns:**
+
+- `feature/` - New features
+- `bugfix/` - Bug fixes
+- `hotfix/` - Critical fixes
+- `release/` - Release preparation
+- `chore/` - Maintenance tasks
+
+### 10. Branch Lifecycle
+
+```mermaid
+graph TD
+    A[🌱 Create Branch] --> B[💻 Develop]
+    B --> C[🔄 Regular Commits]
+    C --> D[📤 Push to Remote]
+    D --> E[📋 Create Pull Request]
+    E --> F[👀 Code Review]
+    F --> G{Review Result}
+    G -->|✅| H[🔀 Merge]
+    G -->|❌| I[🔧 Address Feedback]
+    I --> C
+    H --> J[🧹 Cleanup]
+    J --> K[🗑️ Delete Branch]
+
+    style A fill:#4caf50
+    style H fill:#2196f3
+    style K fill:#f44336
 ```
 
 ## Pro Tips for Branch Visualization
@@ -333,3 +354,19 @@ flowchart LR
 3. **Think in Timelines**: Each branch is a separate timeline of changes
 4. **Understand Pointers**: Branches are just pointers to commits
 5. **HEAD Movement**: Track where you are in the commit history
+
+### Visualization Commands
+
+```bash
+# See branch structure in terminal
+git log --oneline --graph --all --decorate
+
+# See all branches
+git branch -a
+
+# See branch relationships
+git show-branch
+
+# Visual diff between branches
+git diff main..feature-branch
+```
