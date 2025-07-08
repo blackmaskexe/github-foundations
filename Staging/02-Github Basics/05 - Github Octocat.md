@@ -1,2 +1,0 @@
-
-- github's official mascot
