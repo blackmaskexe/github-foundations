@@ -1,9 +1,9 @@
-
 - version control service
 - managed remote git repos
 - expanded to provider other offerings around hosted codebase
 
 ## Features:
+
 - repo hosting
 - project management
 - issue tracking
