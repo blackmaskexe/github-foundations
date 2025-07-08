@@ -46,5 +46,3 @@ git rebase main
   ```bash
   git rebase --continue
   ```
-
----

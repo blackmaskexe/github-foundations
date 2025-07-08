@@ -11,10 +11,10 @@
 ## Git Concepts covered in this documentation:
 - feel free to jump to any one of these if you already do have some idea about Git:
 -   **Core Concepts**: [`init`](<02 - Initializing Git.md>), [`add`](<03 - Staging Area, Git Add.md>), [`commit`](<04 - Git Commit.md>), [`status`, `diff`, `log`](<06 - Git Status, Diff, Log.md>)
--   **Branching and Merging**: [`branch`](<07 - Branches.md>), [`merge`](<08 - Merging.md>), [`rebase`](<11 - Git Rebasing.md>), [merge conflicts](<10 - Merge Conflicts.md>)
+-   **Branching and Merging**: [`branch`](<08 - Branches.md>), [`merge`](<09 - Merging.md>), [`rebase`](<11 - Git Rebasing.md>), [merge conflicts](<10 - Merge Conflicts.md>)
 -   **Working with Remotes**: [`remote`, `clone`](<07 - Git Remotes, Cloning.md>), [`fork`, `pull request`](<14 - Forking and Pull Requests.md>)
 -   **Advanced Topics**: [`squash`](<12 - Git Squashing.md>), [`tags`](<16 - Git Tags.md>), [`stash`](<17 - Stashing (DO NOT use for Remote Development Environments).md>), [`reset`, `revert`](<18 - Git Reset, Revert.md>), [`aliases`](<19 - Git Aliases.md>), [`hooks`](<20 - Git Hooks.md>)
--   **Workflows and Best Practices**: [GitHub Flow](<15 - GitHub Flow.md>), [best practices](<21 - Git Best Practices.md>)
+-   **Workflows and Best Practices**: [best practices](<21 - More Useful Commands, Best Practices.md>)
 
 ## Common Git Terms:
 - just glance over these, they will be covered in detail in the upcoming pages

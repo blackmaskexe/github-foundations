@@ -15,10 +15,6 @@
 - parent commit hashes
 - snapshot of content (reference of files at the time of doing the commit)
 
-
-
-
-
 ## Making Commits
 
 1. **Stage your changes**  

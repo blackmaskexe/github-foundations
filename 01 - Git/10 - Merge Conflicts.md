@@ -33,3 +33,5 @@
 - Use a merge tool for easier conflict resolution:
 ```bash
 git mergetool
+```
+

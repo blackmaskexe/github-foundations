@@ -27,8 +27,18 @@
 ```
 - All your feature branch commits are now a single commit (S1) on top of main.
 
-## How to squash using interactive rebase
-1. Make your multiple commits:
+
+## Squash using `--squash` flag:
+
+```bash
+git merge --squash feature-branch
+git commit -m "Add feature: description"
+```
+- the above command squashes all the commits done in the feature-branch in one single commit, and merges that with the main branch (make sure you are in main)
+## Squash using interactive rebase (optional)
+- this is what happens under the hood if you choose to `git merge --squash feature-branch`
+
+1. Make your multiple commits in separate branch:
 ```bash
 # make a change:
 git add .
@@ -48,20 +58,25 @@ git commit -m 'Squash Commit #3'
    git fetch origin
    git rebase origin/main
    ```
-3. Start an interactive rebase for the last N commits (replace N with the number of commits you want to squash):
+
+3. Switch branch to main `git switch main`
+
+4. Start an interactive rebase for the last N commits (replace N with the number of commits you want to squash):
    ```bash
    git rebase -i HEAD~N
    ```
-4. In the list that appears, leave the first commit as `pick` and change the rest to `squash` (or just `s`).
+
+5. In the list that appears, leave the first commit as `pick` and change the rest to `squash`.
 	- most probably, this will open in a vim editor. Basic navigation in this file:
 	- press `esc` -> press `i` key to enter insert mode
 	- make the changes to commits (have one pick, and all other squash commits)
 	- to save changes, press `esc` -> type `:wq!`
-![[Pasted image 20250707141826.png]]
+	
+	![[../00 - Resources/Pasted image 20250707141826.png]]
 
 
-5. Save and close the editor. Git will ask you to write a commit message for the new squashed commit.
-6. Save and close again to finish. Done!
+6. Save and close the editor. Git will ask you to write a commit message for the new squashed commit.
+7. Save and close again to finish. Done!
 
 - If you get stuck or see a conflict, Git will tell you what to do next (usually fix the file, then run `git rebase --continue`).
 
@@ -82,5 +97,3 @@ git commit -m 'Squash Commit #3'
 - **Don’t squash:**
   - On shared branches (unless everyone agrees)
   - If you want to preserve detailed history for debugging purposes
-
----

@@ -37,19 +37,3 @@ cd .git
 	- and much more (you should explore for yourself)
 	- you can also simply type `git config --list` to view the contents of the ./git/config file without having to actually navigate to it
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Reset:
-- allows to move staged changes to become unstaged changes
-- this is useful when you want to make not all files to be committed (pick and choose which to revert)
-

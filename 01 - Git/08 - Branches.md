@@ -54,6 +54,7 @@ git branch -a # list all branches locally + REMOTE
   - `git checkout` still works, but is more ambiguous
 
 - If you’re new to Git, prefer `switch` and `restore` for clarity!
+- or don't care or use whatever you like
 
 ## Remote Branch Syncing:
 

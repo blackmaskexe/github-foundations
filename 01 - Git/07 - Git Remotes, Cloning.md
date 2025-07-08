@@ -36,8 +36,7 @@ git fetch remote-name # fetch updates without pulling changes
 
 ## Git Remote: Upstream vs Downstream:
 
-![Pasted image 20250625153149.png](../00%20-%20Resources/Pasted%20image%2025250625153149.png)
-
+![[../00 - Resources/Pasted image 20250625153149.png]]
 ## Cloning:
 - The following instructions are about cloning from GitHub. The process of cloning from different providers is similar too.
 - Cloning means getting a copy of the remote repository's code files onto your local system
