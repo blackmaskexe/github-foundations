@@ -32,17 +32,40 @@
      ```
    - Tip: Write clear commit messages so you and your teammates know what changed.
 
+
 5. **Branching for Environments**
-   - Branches let you work on different features or environments (like dev, test, main, beta) without messing up the main code. Create and switch branches:
+   - Branches are one of the most important features in Git. They let you work on different stages of your project without interfering with each other. In our workflow, we use three main branches:
+     - `main`: This is the stable, production-ready branch. Only thoroughly tested code should be merged here. Think of it as the "live" version of your project.
+     - `dev`: This is where all new development happens. You and your team write and test new code here. It's normal for this branch to be a bit messy as you experiment and build features.
+     - `test`: This branch is for testing code before it goes to `main`. Once something is ready in `dev`, you merge it into `test` to make sure everything works as expected. Only after passing tests does code move to `main`.
+   - Why use this workflow?
+     - Keeps the main branch clean and stable for releases.
+     - Lets you experiment and develop freely in `dev` without breaking the main product.
+     - Provides a dedicated place (`test`) to catch bugs before they reach users.
+   - How to create and switch between these branches:
      ```bash
-     git branch dev      # create a dev branch
-     git branch test     # create a test branch
-     git branch beta     # create a beta branch
+     git branch dev      # create a dev branch (if it doesn't exist)
+     git branch test     # create a test branch (if it doesn't exist)
      git checkout dev    # switch to dev branch
-     # Or use the new command
+     # Or use the new command (recommended)
      git switch dev
      ```
-   - Use branches to safely experiment or develop features before merging them into main.
+   - Typical workflow:
+     1. Start on `dev` and make your changes.
+     2. When ready, merge `dev` into `test` for testing:
+        ```bash
+        git checkout test
+        git merge dev
+        ```
+     3. After testing, merge `test` into `main` for release:
+        ```bash
+        git checkout main
+        git merge test
+        ```
+   - If you no longer need a branch, you can delete it:
+     ```bash
+     git branch -d branch-name
+     ```
 
 6. **Merging Branches**
    - When your feature or fix is ready, merge it into the main branch:
